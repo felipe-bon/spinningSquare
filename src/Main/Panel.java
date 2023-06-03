@@ -38,7 +38,7 @@ public class Panel extends JPanel implements Runnable{
 
     @Override
     public void run() {
-        double drawInterval =30000000;
+        double drawInterval =100000000;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -60,13 +60,9 @@ public class Panel extends JPanel implements Runnable{
                 drawCount++;
             }
            
-            if(timer >= 100000000){
+            if(timer >= 5000){
                 drawCount = 0;
                 timer = 0;
-                largura = (float) (largura- 0.1);
-                if(largura < 0){
-                    largura = 1;
-                }
             }
         }
     }

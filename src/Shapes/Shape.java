@@ -15,7 +15,7 @@ public class Shape {
     int flag = 0;
     public Shape(){
         try {
-            img = ImageIO.read(getClass().getResourceAsStream("sqr.png"));
+            img = ImageIO.read(getClass().getResourceAsStream("sword.png"));
         } catch (IOException ex) {
             System.out.println("nao deu");
         }
@@ -24,13 +24,15 @@ public class Shape {
     
     public void update(){
         
-        if(percentual <= -1){
+        if(percentual <= -0.85){
+            percentual = (float) -0.95;
             if(flag == 1)
                 flag = 0;
             else
                 flag = 1;
         }
         else if(percentual >= 1){
+            percentual = 1;
             if(flag == 1)
                 flag = 0;
             else
@@ -41,11 +43,6 @@ public class Shape {
             percentual = (float) (percentual-0.1);
         else
             percentual = (float) (percentual+0.1);
-        
-        System.out.println("flag: "+flag);
-        System.out.println("percentual: "+percentual+'\n');
-
-        
     }
     
     public void rotate(Graphics2D G2){
