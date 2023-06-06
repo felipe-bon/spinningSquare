@@ -8,12 +8,14 @@ import javax.imageio.ImageIO;
 
 
 
-public class Shape {
+public class Shape{
     
     float percentual = (float) 1.0;
     public BufferedImage img;
     int flag = 0;
+    
     public Shape(){
+  
         try {
             img = ImageIO.read(getClass().getResourceAsStream("sword.png"));
         } catch (IOException ex) {
@@ -24,7 +26,7 @@ public class Shape {
     
     public void update(){
         
-        if(percentual <= -0.85){
+        if(percentual <= -0.9){
             percentual = (float) -0.95;
             if(flag == 1)
                 flag = 0;
@@ -40,9 +42,9 @@ public class Shape {
         }
         
         if(flag == 1)
-            percentual = (float) (percentual-0.1);
+            percentual = (float) (percentual-0.15);
         else
-            percentual = (float) (percentual+0.1);
+            percentual = (float) (percentual+0.15);
     }
     
     public void rotate(Graphics2D G2){
@@ -54,4 +56,5 @@ public class Shape {
     public void draw(Graphics2D G2){
         G2.drawImage(this.img, 20, 20, 100, 100, null);
     }
+
 }
